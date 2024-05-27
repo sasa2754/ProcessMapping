@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezinho lindo 😍</title>
+    <!-- lib de icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <style>
+        body {
+        overflow: hidden;
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="estilo.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<body style="background-color: darkseagreen;">
+
+    <div>
+        <style>
+            * {
+                font-family: Poppins;
+            }
+
+            .quadrado {
+                background-image: url(imagens/background2.png);
+                background-size: 100%;
+                height: 925px;
+                width: 570px;
+                border-color: black;
+                margin: 1rem auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20rem;
+                border-radius: 2%;
+            }
+
+            .botaoAvancar {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.4rem 8.5rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoAvancar:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            .botaoCadastro {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 6rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoCadastro:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            input::placeholder {
+                color: #55734E;
+            }
+
+            .botaoVoltar {
+                text-align: center;
+                background-color: #97BA8F;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 3rem;
+                font-size: 20px;
+                top: 50;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoVoltar:hover {
+                background-color: #87a780;
+                color: rgba(255, 255, 255, 0.616);
+            }
+            .lnr-eye{
+                color: #42513E;
+                position: absolute;
+                font-size: 40px;
+                margin: 6.35rem -9rem;
+                cursor: pointer;
+            }
+        </style>
+        <div class="quadrado">
+            <h1 style="text-align: center; color: #42513e; font-size: 85px; margin: 6rem auto;">Login</h1>
+
+            <form id="loginForm">
+                <input id="usuario" type="email"
+                    style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; position: relative; top: -29rem; margin: 5.9rem; border-radius: 7px; padding: 0.3rem 1rem;"
+                    placeholder="Email">
+            
+                <input id="password" type="password"
+                    style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; position: relative; top: -39rem; margin: 5.9rem; border-radius: 7px; padding: 0.3rem 1rem;"
+                    placeholder="Senha">
+                <span class="lnr lnr-eye" style="position: relative; top: -38.44rem;"></span>
+            </form>
+
+            <div style="flex: justify-content; margin: -25rem auto;">
+                <button onclick="podeAvancar()" id="botao_avancar" class="botaoAvancar" type="Button" value="Avançar" style="margin: auto; position: relative; top: -38rem;">Avançar</button>
+            </div>
+
+            <h2 style="text-align: center; color: #42513e; font-size: 38px; margin: -32rem auto;">Não tem conta?</h2>
+
+            <div style="flex: justify-content; margin: -25rem auto;">
+                <input id="botao_cadastro" class="botaoCadastro" type="Button" value="Fazer cadastro"
+                    style="margin: 38rem auto;">
+            </div>
+
+            <div style="flex: justify-content; margin: -19.5rem 2rem; ">
+                <input id="botao_voltar" class="botaoVoltar" type="Button" value="Voltar">
+            </div>
+        </div>
+        <script src="cadastro.html"></script>
+        <script>
+            function podeAvancar(){
+                var usuario = document.getElementById('usuario').value;
+                var senha = document.getElementById('password').value;
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                let logged = false
+                let adm= false;
+                users.map((user) => {
+                    if(user.email == usuario && senha == user.password){
+                        logged = true;
+                        adm = user.adm;
+                        sessionStorage.setItem('userId', user.id);
+                        return
+                    }
+                })
+                console.log(adm)
+                if(adm){
+                    window.location.href = 'adm.html';
+                    return
+                }
+                 if(logged){
+                    window.location.href = `menu.html`;
+                }else{
+                    alert("Usuário ou senha incorretos!")
+                }
+                
+            }
+        </script>
+        <script>
+            var botaoQueCadastro = document.getElementById("botao_cadastro");
+
+            botaoQueCadastro.addEventListener("click", function () {
+                window.location.href = "cadastro.html";
+            });
+        </script>
+        <script>
+
+            var botaoQueVolta = document.getElementById("botao_voltar");
+
+            botaoQueVolta.addEventListener("click", function () {
+                window.location.href = "index.html";
+            });
+
+            </script>
+            <script>
+                let btn = document.querySelector('.lnr-eye');
+                btn.addEventListener('click', function() {
+                    let input = document.querySelector('#password');
+                    if(input.getAttribute('type') == 'password') {
+                        input.setAttribute('type', 'text');
+                    } else {
+                        input.setAttribute('type', 'password');
+                    }
+                });
+
+            </script>
+
+        
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezinho lindo 🙃</title>
+    <!-- lib de icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <style>
+        body {
+        overflow: hidden;
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="estilo.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<body style="background-color: darkseagreen;">
+
+    <div>
+        <style>
+            * {
+                font-family: Poppins;
+            }
+
+            .quadrado {
+                background-image: url(imagens/background5.png);
+                background-size: 100%;
+                height: 925px;
+                width: 570px;
+                border-color: black;
+                margin: 1rem auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20rem;
+                border-radius: 2%;
+            }
+
+            .botaoPerfil {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.4rem 8.5rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoPerfil:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            .botaoProblema {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.4rem 4.5rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoProblema:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+
+            .botaoAtualizar {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 4.6rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoAtualizar:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            input::placeholder {
+                color: #55734E;
+            }
+
+            .botaoSair {
+                text-align: center;
+                background-color: #97BA8F;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 3rem;
+                font-size: 20px;
+                top: 50;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoSair:hover {
+                background-color: #87a780;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+        </style>
+        <div class="quadrado">
+            <h1 style="text-align: center; color: #42513e; font-size: 85px; margin: 6rem auto;">Menu</h1>
+
+            <div style="flex: justify-content; margin: -23rem auto;">
+                <button onclick="perfil()" id="botao_perfil" class="botaoPerfil" style="margin: auto; position: relative; top: 0rem;">Ver perfil</button>
+            </div>
+            
+            <div style="flex: justify-content; margin: -61rem auto;">
+                <button onclick="atualizar()" id="atualizarCadastro" class="botaoAtualizar" type="button" style="margin: auto; position: relative; top: 67rem;">Atualizar cadastro</button>
+            </div>
+           
+            <div style="flex: justify-content; margin: 2rem; position: relative; top: 132rem;">
+                <input onclick="sair()" id="botao_sair" class="botaoSair" type="Button" value="Sair">
+            </div>
+
+            <div style="flex: justify-content; margin: -23rem auto;">
+                <button onclick="problema()" id="botao_problema" class="botaoProblema" style="margin: auto; position: relative; top: 107rem;">Informar problema</button>
+            </div>
+        </div>
+
+        <script>
+                function perfil(){
+                    window.location.href = "perfil.html";
+                }
+
+        </script>
+        <script>
+            function problema(){
+                window.location.href = "problema.html";
+            }
+        </script>
+        <script>
+            function atualizar(){
+                window.location.href = "atualizar_cadastro.html";
+            }
+        </script>
+        <script>
+            function sair(){
+                sessionStorage.clear();
+                window.location.href = "index.html";
+            }
+        </script>
+        <script>
+            const userId = sessionStorage.getItem('userId');
+            if(!userId) {
+                window.location.href = 'login.html'
+            }
+        </script>
+
+        
+</body>
+</html>

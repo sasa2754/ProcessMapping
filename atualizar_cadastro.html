@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezinho lindo 🤓</title>
+    <!-- lib de icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <script>
+        function formatarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2"); // Adiciona o primeiro ponto
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2"); // Adiciona o segundo ponto
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Adiciona o traço
+            return cpf;
+        }
+        
+        function atualizarCPF(input) {
+            var valor = input.value;
+            input.value = formatarCPF(valor);
+        }
+    </script>
+    <script>
+        function formatarCEP(cep) {
+            cep = cep.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+            cep = cep.replace(/^(\d{5})(\d)/, "$1-$2"); // Adiciona o hífen
+            return cep;
+        }
+        
+        function atualizarCEP(input) {
+            var valor = input.value;
+            input.value = formatarCEP(valor);
+        }
+        </script>
+        <style>
+            body {
+            overflow: hidden;
+            }
+        </style>
+</head>
+<link rel="stylesheet" href="estilo.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<body style="background-color: darkseagreen;">
+
+    <div>
+        <style>
+            * {
+                font-family: Poppins;
+            }
+
+            .quadrado {
+                background-image: url(imagens/background4.png);
+                background-size: 100%;
+                height: 925px;
+                width: 570px;
+                border-color: black;
+                margin: 1rem auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20rem;
+                border-radius: 2%;
+            }
+
+            .botaoCadastro {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 8rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoCadastro:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            input::placeholder {
+                color: #55734E;
+            }
+
+            .botaoVoltar {
+                text-align: center;
+                background-color: #97BA8F;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 3rem;
+                font-size: 20px;
+                top: 50;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoVoltar:hover {
+                background-color: #87a780;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            .lnr-eye {
+                color: #42513E;
+                position: absolute;
+                font-size: 40px;
+                margin: 6.35rem -9rem;
+                cursor: pointer;
+            }
+        </style>
+        <!-- Div do quadrado, tudo está dentro dele -->
+        <div class="quadrado">
+            <h1 style="text-align: center; color: #42513e; font-size: 52px; margin: 4rem auto;">Atualizar</h1>
+            <h2 style="text-align: center; color: #42513e; font-size: 52px; margin: -25.2rem auto;">Cadastro</h2>
+
+            <form>
+            <input
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: 6.5rem 5.95rem; border-radius: 7px; padding: 0.3rem 1rem;"
+                placeholder="Nome completo" id="nomeUsuario">
+            <input type="text"
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: -25rem 5.95rem; border-radius: 7px; padding: 0.3rem 1rem; position: relative; top: -3.5rem"
+                placeholder="CPF" maxlength="14" oninput="atualizarCPF(this)" id="cpfUsuario">
+            <input type="email"
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: 7rem 5.95rem; border-radius: 7px; padding: 0.3rem 1rem; position: relative; top: -7.8rem"
+                placeholder="Email" id="emailUsuario">
+            <input type="date"
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: -25rem 5.95rem; border-radius: 7px; padding: 0.3rem 1rem; position: relative; top: -11.76rem"
+                placeholder="Nascimento" id="nascimentoUsuario">
+            <input type="text"
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: 5.95rem; border-radius: 7px; padding: 0.3rem 1rem; position: relative; top: -14.84rem"
+                placeholder="CEP" maxlength="9" oninput="atualizarCEP(this)" id="cepUsuario">
+
+            <input id="password" type="password"
+                style="background-color: #97BA8F; font-size: 25px; color: #42513E; width: 60%; margin: 5.95rem; border-radius: 7px; padding: 0.3rem 1rem; position: relative; top: -24.67rem;"
+                placeholder="Senha" >
+            <span class="lnr lnr-eye" onclick="togglePassword()" style="position: relative; top: -24.08rem;"></span>
+
+            </form>
+
+            <div style="flex: justify-content; margin: -24rem auto;">
+                <button onclick="atualizarC()" id="botao_cadastro" class="botaoCadastro" type="Button" value="Atualizar" style="margin: auto; position: relative; top: -24.8rem;">Atualizar</button>
+            </div>
+
+            <div style="flex: justify-content; margin: -16.8rem 2rem; ">
+                <input id="botao_voltar" class="botaoVoltar" type="Button" value="Voltar">
+            </div>
+        </div>
+        <script>
+            function atualizarC(){
+                atualizar(sessionStorage.getItem('userId'))
+                window.location.href = "menu.html";
+       
+            }
+
+        </script>
+        <script>
+
+            var botaoQueVolta = document.getElementById("botao_voltar");
+            botaoQueVolta.addEventListener("click", function () {
+                window.location.href = "menu.html";
+            });
+        </script>
+        <script>
+            let btn = document.querySelector('.lnr-eye');
+            btn.addEventListener('click', function () {
+                let input = document.querySelector('#password');
+                if (input.getAttribute('type') == 'password') {
+                    input.setAttribute('type', 'text');
+                } else {
+                    input.setAttribute('type', 'password');
+                }
+            });
+        </script>
+        <script>
+            const dadosString = localStorage.getItem('users');
+            const userId = sessionStorage.getItem('userId');
+
+            if(!userId) {
+                window.location.href = 'login.html';
+            }
+            
+            const dados = JSON.parse(dadosString);
+            const usuario = dados.find((user) => user.id == userId);
+
+            document.getElementById("nomeUsuario").value = usuario.nome;
+            document.getElementById("cpfUsuario").value = usuario.cpf;
+            document.getElementById("emailUsuario").value = usuario.email;
+            document.getElementById("nascimentoUsuario").value = usuario.nascimento;
+            document.getElementById("cepUsuario").value = usuario.cep;
+            document.getElementById("password").value = usuario.password;
+
+            
+            function atualizar(id){
+                // let editarUsers = JSON.parse(localStorage.getItem('users'))
+                // .filter(item => item.id == id);
+                // const editUser = {};
+                
+                // const nomeAlterado = document.getElementById('nomeUsuario').value;
+                // const cpfAlterado = document.getElementById('cpfUsuario').value;
+                // const emailAlterado = document.getElementById('emailUsuario').value;
+                // const nascimentoAlterado = document.getElementById('nascimentoUsuario').value;
+                // const cepAlterado = document.getElementById('cepUsuario').value;
+                // const senhaAlterado = document.getElementById('password').value;
+
+                // editUser.nome = nomeAlterado;
+                // editUser.cpf = cpfAlterado;
+                // editUser.email = emailAlterado;
+                // editUser.nascimento = nascimentoAlterado;
+                // editUser.cep = cepAlterado;
+                // editUser.password = senhaAlterado;
+                
+                // editarUsers.map(user => {
+                //     if(user.id == userId){
+                //         user.nome = nomeAlterado;
+                //         user.cpf = cpfAlterado;
+                //         user.email = emailAlterado;
+                //         user.nascimento = nascimentoAlterado;
+                //         user.cep = cepAlterado;
+                //         user.password = senhaAlterado;
+
+                //     }
+                // })
+                // localStorage.setItem('users', JSON.stringify(editarUsers));
+                let editarUsers = JSON.parse(localStorage.getItem('users'));
+                editarUsers = editarUsers.map(user => {
+                if(user.id == id){
+                    user.nome = document.getElementById('nomeUsuario').value;
+                    user.cpf = document.getElementById('cpfUsuario').value;
+                    user.email = document.getElementById('emailUsuario').value;
+                    user.nascimento = document.getElementById('nascimentoUsuario').value;
+                    user.cep = document.getElementById('cepUsuario').value;
+                    user.password = document.getElementById('password').value;
+                }
+                return user;
+                });
+                localStorage.setItem('users', JSON.stringify(editarUsers));
+            }
+            
+        </script>
+</body>
+
+</html>

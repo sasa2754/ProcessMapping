@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezinho lindo 😡</title>
+    <style>
+        /* body {
+        overflow: hidden;
+        } */
+    </style>
+</head>
+<link rel="stylesheet" href="estilo.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<body style="background-color: darkseagreen;">
+
+    <div>
+        <style>
+            * {
+                font-family: Poppins;
+            }
+
+            .quadrado {
+                background-image: url(imagens/background2.png);
+                background-size: 100%;
+                height: 96.5vh;
+                width: 570px;
+                border-color: black;
+                margin: 1rem auto;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                border-radius: 2%;
+            }
+
+            .botaoEnviar {
+                text-align: center;
+                background-color: #5e7658;
+                border-color: black;
+                color: white;
+                padding: 0.4rem 9.2rem;
+                font-size: 25px;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoEnviar:hover {
+                background-color: #42513e;
+                color: rgba(255, 255, 255, 0.616);
+            }
+
+            .botaoVoltar {
+                text-align: center;
+                background-color: #97BA8F;
+                border-color: black;
+                color: white;
+                padding: 0.5rem 3rem;
+                font-size: 20px;
+                top: 50;
+                cursor: pointer;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+
+            .botaoVoltar:hover {
+                background-color: #87a780;
+                color: rgba(255, 255, 255, 0.616);
+            }
+            .escrito{
+                background-color: #97BA8F;
+                font-size: 25px;
+                color: #42513E; 
+                width: 100%;
+                max-height: 10rem;
+                max-width: 20rem;
+                min-width: 5rem;
+                min-height: 2rem;
+                margin: 2rem auto;
+                border-radius: 7px;
+                padding: 0.375rem 1rem;      
+                          
+            }
+        
+            .escrito:focus{
+                outline: none;
+            }
+
+
+        </style>
+        <div class="quadrado">
+            <div>
+                <h1 style="text-align: center; color: #42513e; font-size: 55px; margin: 6rem auto;">Em que posso ajudar?</h1>
+            </div>
+            <div>
+                <h2 style="text-align: center; color: #42513e; font-size: 30px; margin: -6rem auto;">Diga em poucas palavras o seu problema:</h2>
+            </div>
+            <div style="width: 60%; display: flex; justify-content: center; margin: -2rem auto;">
+                <textarea id="mensagem" class="escrito" placeholder="Digite..." cols="15" rows="5"></textarea>
+            </div>
+                
+            <div style="flex: justify-content; margin: -0rem auto;">
+                <button onclick="enviarMensagem()" class="botaoEnviar" type="button" value="Enviar" style="margin: auto;">Enviar</button>
+            </div>
+
+            <div style="flex: justify-content; margin: 12rem 2rem; ">
+                <input id="botao_voltar" class="botaoVoltar" type="Button" value="Voltar">
+            </div>
+        </div>
+
+        <script>
+
+            var botaoQueVolta = document.getElementById("botao_voltar");
+
+            botaoQueVolta.addEventListener("click", function () {
+                window.location.href = "menu.html";
+            });
+        </script>
+
+
+        <script>
+            function enviarMensagem(){
+                var numeroTelefone = '+5541995213923'
+                var mensagem = document.getElementById('mensagem').value;
+                let problemas = JSON.parse(localStorage.getItem('problemas')) || [];
+                const userId = sessionStorage.getItem('userId');
+
+                const novoProblema = {
+                    mensagem, userId
+                }
+
+                problemas.push(novoProblema);
+                localStorage.setItem('problemas', JSON.stringify(problemas));
+                window.location.href = ('menu.html');
+                // if(mensagem){
+                //     var uri = 'whatsapp://send?phone=' + numeroTelefone + '&text=' + encodeURIComponent(mensagem);
+                //     window.location.href = uri;
+                //     alert('Mensagem enviada!')
+                // }
+                // else{
+                //     alert('Por favor, preencha a mensagem!')
+                // }
+            }
+        </script>
+</body>
+
+</html>
